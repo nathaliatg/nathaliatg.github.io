@@ -340,14 +340,6 @@ body{
 .prev-btn{left:10px}
 .next-btn{right:10px}
 
-@media (max-width:768px){
-  .carrossel-btn{top:auto;bottom:10px;transform:none;padding:5px 10px}
-  .prev-btn{left:10px}
-  .next-btn{right:10px}
-  .slide-content{text-align:center}
-  .stacks-icones{justify-content:center}
-}
-
 /* títulos e textos do slide */
 .slide-titulo-principal{font-size:1.8em;color:#f5498b;margin-bottom:5px}
 .slide-subtitulo{font-size:1.2em;font-weight:bold;color:#FF7F50;margin-bottom:20px}
@@ -357,6 +349,68 @@ body{
 .stacks-icones{display:flex;justify-content:center;gap:15px;margin-top:25px}
 .stacks-icones img{width:45px;height:45px;transition:transform .3s ease}
 .stacks-icones img:hover{transform:translateY(-5px)}
+
+@media (max-width:768px){
+    /* Ajusta a seção e o container para evitar que o carrossel encoste nas laterais */
+    .habilidades-carrossel {
+        padding: 40px 0; /* Um pouco menos de padding vertical para economizar espaço */
+    }
+    .container-carrossel {
+        padding: 0 10px; /* Pouco padding nas laterais para que a caixa branca possa se estender mais */
+    }
+    
+    /* CONTEÚDO DO SLIDE: CAIXA BRANCA */
+    .caixa-habilidades {
+        /* Aumenta o padding interno para dar mais "ar" ao texto. 
+           O padding-bottom é maior para dar espaço aos botões. */
+        padding: 30px 25px 40px 25px; 
+    }
+
+    /* TITULOS E DESCRICOES DENTRO DO SLIDE */
+    .slide-titulo-principal{
+        font-size: 1.3em; /* Reduz um pouco mais o título principal */
+        margin-bottom: 8px; /* Ajusta a margem para evitar aperto */
+    }
+    .slide-subtitulo{
+        font-size: 1em; /* Tamanho padrão */
+    }
+    .slide-descricao{
+        font-size: 0.9em; /* Reduz levemente o texto de descrição para caber */
+    }
+    
+    /* ÍCONES DAS STACKS */
+    .stacks-icones {
+        justify-content: center; 
+        gap: 8px; /* Reduz ainda mais o espaço entre ícones para economizar horizontal */
+        margin-top: 15px; /* Ajusta margem superior */
+    }
+    .stacks-icones img{
+        width: 32px; /* Reduz o tamanho dos ícones */
+        height: 32px;
+    }
+
+    /* BOTÕES DE NAVEGAÇÃO */
+    .carrossel-btn{
+        top:auto;
+        bottom: 20px; /* Move para a parte inferior da caixa branca, com um bom espaço */
+        transform:none; 
+        
+        /* Aumenta a área de toque e visibilidade */
+        padding: 10px 16px; 
+        font-size: 1.5em; 
+        background-color: rgba(255, 255, 255, 0.7); /* Mais sólido para se destacar */
+    }
+    
+    .prev-btn{
+        left: 30px; /* Posição à esquerda, dentro da caixa */
+        /* Para o ícone do GitHub e CodePen */
+        color: var(--color-pink-vibrant); 
+    }
+    .next-btn{
+        right: 30px; /* Posição à direita, dentro da caixa */
+        color: var(--color-pink-vibrant);
+    }
+}
 
 /* efeito papel rasgado (PNG) */
 .habilidades-carrossel::after{
