@@ -144,7 +144,7 @@ body{
     transform:translateX(-50%);
     width:100%;
     padding:0 20px;
-    font-size:.9em;
+    font-size:.8em;
     font-weight:bold;
     z-index:15;
   }
@@ -197,7 +197,6 @@ body{
 .sobre-mim{
   background-color:#FCAC39;
   padding:60px 0 20px 0;
-  overflow:hidden;
 }
 
 .container-sobre-mim{
@@ -205,17 +204,17 @@ body{
   align-items:flex-start;
   max-width:1200px;
   margin:0 auto;
-  gap:50px;
-  padding:0 20px;
+  gap:40px;
+  padding:0px 20px;
 }
 
 .foto-perfil{
   transform:translateY(-80px);
-  max-width:600px;
+  max-width:550px;
   height:550px;
-  margin:30px auto -40px auto;
   flex-shrink:0;
   position:relative;
+  margin-top: 40px;
 }
 
 .foto-perfil img{width:100%;transform:translateY(-80px)}
@@ -237,10 +236,10 @@ body{
   transition:opacity .8s ease-out, transform .8s ease-out;
 }
 
-#fato-img-1{top:15px;left:-100px;transform:rotate(-12deg) scale(.9)}
-#fato-img-2{top:150px;left:-180px;transform:rotate(5deg) scale(1)}
-#fato-img-3{top:300px;left:-150px;transform:rotate(-5deg) scale(.95)}
-#fato-img-4{bottom:50px;left:-150px;transform:rotate(10deg) scale(.95)}
+#fato-img-1{top:-30px;left:-100px;transform:rotate(-12deg) scale(.9)}
+#fato-img-2{top:150px;left:-150px;transform:rotate(5deg) scale(1)}
+#fato-img-3{top:300px;left:-140px;transform:rotate(-5deg) scale(.95)}
+#fato-img-4{bottom:50px;left:-100px;transform:rotate(10deg) scale(.95)}
 
 /* estado inicial para fatos (JS adiciona/remove) */
 .hidden{opacity:0;transform:translateY(20px) rotate(0deg)}
@@ -394,7 +393,6 @@ body{
         top:auto;
         bottom: 20px; /* Move para a parte inferior da caixa branca, com um bom espaço */
         transform:none; 
-        
         /* Aumenta a área de toque e visibilidade */
         padding: 10px 16px; 
         font-size: 1.5em; 
@@ -404,11 +402,11 @@ body{
     .prev-btn{
         left: 30px; /* Posição à esquerda, dentro da caixa */
         /* Para o ícone do GitHub e CodePen */
-        color: var(--color-pink-vibrant); 
+        color:#f5498b; 
     }
     .next-btn{
         right: 30px; /* Posição à direita, dentro da caixa */
-        color: var(--color-pink-vibrant);
+        color:#f5498b;
     }
 }
 
