@@ -11,7 +11,6 @@ body{
 .portfolio-title{
   font-family:'Montserrat', serif;
   font-size:9em;
-  font-weight:bold;
   margin:0;
   line-height:1;
   display: inline-block;
@@ -68,8 +67,8 @@ body{
   justify-content:space-between;
   padding:0 40px;
   box-sizing:border-box;
+  color: #333333;
   font-size:1.2em;
-  font-weight:bold;
   z-index:100;
   opacity:0;
   transform:translateX(-50%) translateY(24px);
@@ -145,7 +144,6 @@ body{
     width:100%;
     padding:0 20px;
     font-size:.8em;
-    font-weight:bold;
     z-index:15;
   }
   .brilho-decorativo{width:35px;opacity:.5}
@@ -481,3 +479,175 @@ body{
 
 /* dica de acessibilidade visual para foco no botão */
 .btn-contato:focus{outline:3px solid rgba(255,255,255,.3);outline-offset:4px}
+
+/* ==========================================================================
+   BOTÃO VOLTAR AO TOPO (CORRIGIDO: Redondo e Transparente com Sombra)
+   ========================================================================== */
+#backToTopBtn {
+    /* Posição Fixa na tela */
+    position: fixed; 
+    bottom: 30px; 
+    right: 30px; 
+    
+    /* GARANTE A FORMA REDONDA */
+    width: 50px; /* Largura fixa */
+    height: 50px; /* Altura fixa */
+    
+    /* Estilização Transparente */
+    background-color: rgba(255, 255, 255, 0.4); /* Fundo branco e transparente */
+    color: #ffffff; /* Cor do ícone rosa */
+    border: none;
+    cursor: pointer;
+    
+    /* Centraliza o ícone */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    border-radius: 50%; /* Faz o botão ser circular */
+    font-size: 1.5em;
+    
+    /* Sombra e Efeito Flutuante */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra mais suave */
+    
+    /* Oculta por padrão e transição */
+    opacity: 0; 
+    visibility: hidden; 
+    transition: all 0.3s ease; /* Transição para todos os efeitos */
+    z-index: 1000; 
+}
+
+/* Estado visível (adicionado via JavaScript) */
+#backToTopBtn.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Ajuste no Hover/Focus */
+#backToTopBtn:hover,
+#backToTopBtn:focus {
+    /* Aumenta a opacidade e a sombra no hover */
+    background-color: #f5498b; 
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px); /* Efeito sutil de "pulo" */
+    outline: none;
+}
+
+/* Responsividade: Ajuste no mobile */
+@media (max-width: 768px) {
+    #backToTopBtn {
+        bottom: 10px;
+        right: 20px;
+        width: 40px; /* Reduz o tamanho no mobile */
+        height: 40px;
+        font-size: 1.2em;
+    }
+}
+
+/* ==========================================================================
+   INDICADOR DE SCROLL (Seta Chevron Final)
+   ========================================================================== */
+.scroll-indicator {
+    position: absolute;
+    bottom: 50px; 
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    
+    /* Animação que faz o pulso para o visual flutuante */
+    animation: simple-bounce 1.5s infinite; 
+}
+
+/* Animação: Faz o indicador inteiro pular suavemente */
+@keyframes simple-bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0) translateX(-50%);
+    }
+    40% {
+        transform: translateY(-8px) translateX(-50%); 
+    }
+    60% {
+        transform: translateY(-4px) translateX(-50%); 
+    }
+}
+
+/* Container da Seta */
+.chevron-arrow {
+    display: block;
+    width: 25px; /* Largura do ícone */
+    height: 30px; /* Altura do ícone */
+    position: relative;
+}
+
+/* Desenha a Seta Principal (o V) usando o pseudoelemento :after */
+.chevron-arrow:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    
+    /* Define a forma e a cor */
+    width: 15px; 
+    height: 15px; 
+    border-bottom: 3px solid var(--color-pink-vibrant); 
+    border-right: 3px solid var(--color-pink-vibrant); 
+    
+    /* Gira e centraliza para formar o V */
+    transform: translateX(-50%) rotate(45deg);
+    
+    /* Animação de descida */
+    animation: arrow-down 1.5s infinite;
+}
+
+/* Adiciona a SEGUNDA seta para o efeito de cascata (Duplicação Visual) */
+.chevron-arrow:before {
+    content: '';
+    position: absolute;
+    top: 5px; /* Posicionada logo abaixo da primeira */
+    left: 50%;
+    
+    width: 15px; 
+    height: 15px; 
+    border-bottom: 3px solid #f5498b; 
+    border-right: 3px solid #f5498b; 
+    
+    transform: translateX(-50%) rotate(45deg);
+    
+    /* Aplica a mesma animação com um atraso */
+    animation: arrow-down 1.5s infinite 0.2s; /* 0.2s de atraso */
+}
+
+/* Animação: Faz a seta descer e reaparecer */
+@keyframes arrow-down {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -10px) rotate(45deg); /* Começa 10px acima */
+    }
+    50% {
+        opacity: 1;
+        transform: translate(-50%, 0) rotate(45deg); /* Aparece na posição normal */
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, 10px) rotate(45deg); /* Desce 10px e some */
+    }
+}
+
+
+/* Responsividade (Ajusta a posição no mobile) */
+@media (max-width: 768px) {
+    .scroll-indicator {
+        bottom: 25px; 
+    }
+    .chevron-arrow {
+        width: 20px;
+        height: 25px;
+    }
+    .chevron-arrow:after,
+    .chevron-arrow:before {
+        width: 12px;
+        height: 12px;
+        border-bottom: 2px solid #f5498b; 
+        border-right: 2px solid #f5498b; 
+    }
+}

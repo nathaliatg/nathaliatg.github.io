@@ -144,4 +144,34 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener('resize', 
     handleFatosResponsividade);
 
+// ==========================================================================
+    // 5. BOTÃO VOLTAR AO TOPO (Back to Top)
+    // ==========================================================================
+    const backToTopBtn = document.getElementById('backToTopBtn');
+    
+    // Função para mostrar/esconder o botão
+    const toggleBackToTop = () => {
+        // Se a posição de scroll for maior que 300 pixels, mostre o botão
+        if (window.scrollY > 300) {
+            backToTopBtn.classList.add('show');
+        } else {
+            backToTopBtn.classList.remove('show');
+        }
+    };
+
+    // Função para rolar para o topo
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth' // Rola de forma suave
+        });
+    };
+
+    // Adiciona os event listeners
+    window.addEventListener('scroll', toggleBackToTop);
+    backToTopBtn.addEventListener('click', scrollToTop);
+    
+    // Executa uma vez na inicialização para o caso de a página já abrir scrollada
+    toggleBackToTop();
+
 });
