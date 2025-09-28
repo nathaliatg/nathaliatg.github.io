@@ -142,7 +142,7 @@ body{
     left:50%;
     transform:translateX(-50%);
     width:100%;
-    padding:0 20px;
+    padding:0 10px;
     font-size:.8em;
     z-index:15;
   }
@@ -637,10 +637,10 @@ body{
 /* Responsividade (Ajusta a posição no mobile) */
 @media (max-width: 768px) {
     .scroll-indicator {
-        bottom: 25px; 
+        bottom: 20px; 
     }
     .chevron-arrow {
-        width: 20px;
+        width: 15px;
         height: 25px;
     }
     .chevron-arrow:after,
